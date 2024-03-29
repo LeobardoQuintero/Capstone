@@ -1,20 +1,42 @@
 const API_URL = "https://fakestoreapi.com";
 
-
-
 export async function login(email, password) {
-const response = await fetch(`${API_URL}/auth/login`, {
+  const response = await fetch(`${API_URL}/auth/login`, {
     method: "POST",
     headers: {
-    "Content-Type": "application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
-    email,
-    password,
+      email,
+      password,
     }),
-});
-const data = await response.json();
-console.log(data);
+  });
+  const data = await response.json();
+  console.log(data);
 
-return data;
+  return data;
+}
+
+export async function getProducts() {
+    try {
+      const response = await fetch(`${API_URL}/products`);
+      const result = await response.json();
+      console.log(result);
+      return result;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+
+
+export async function fetchSingleProduct(id) {
+  try {
+    const response = await fetch(`${API_URL}/products/${id}`);
+    const result = await response.json();
+    console.log(result);
+    return result;
+  } catch (error) {
+    console.error(error);
+  }
 }

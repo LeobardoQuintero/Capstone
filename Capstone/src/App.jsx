@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
+import SingleProduct from "./Pages/SingleProduct";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -18,9 +19,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Register" element={<Register />} />
+          <Route path='/product/:id' element={<SingleProduct/>} />
         </Routes>
       </div>
-      <footer className="footer"> sdfkjbadskjfbhsd </footer>
+      <footer className="footer">  </footer>
     </>
   );
 }
